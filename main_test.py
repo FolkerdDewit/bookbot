@@ -2,13 +2,9 @@ def main():
     with open("books/frankenstein.txt") as f:
         file_contents = f.read()
     #print(file_contents)
-    final_list = sort(file_contents)
-    print("--- Begin report of books/frankenstein.txt ---")
-    print(f"{word_count(file_contents)} words found in the document \n")
-    
-    for letter in final_list:
-        print(f"The '{letter}' character was found {final_list[letter]} times")
-
+    print(word_count(file_contents))
+    print(letter_count(file_contents))
+    print(sort(file_contents))
 
 
 def word_count(text):
@@ -30,9 +26,7 @@ def sort(count):
     for char in character_list:
         if char.isalpha():
             alphabet_list[char] = character_list[char]
-    sorted_alphabet = dict(sorted(alphabet_list.items(), key=lambda item: item[1], reverse=True))
+    sorted_alphabet = dict(sorted(alphabet_list.items()))
     return sorted_alphabet
 
-
-    
 main()
